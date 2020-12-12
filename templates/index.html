@@ -17,6 +17,10 @@
 	<p>
 <div>
 
+	{% for row in data %}         
+	<li> {{ row.states }}: {{ row.white }},{{ row.black }} </li>         
+	{% endfor %}
+
 {% endblock %}
 </body>
 </html>

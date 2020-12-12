@@ -52,8 +52,11 @@ class DBTable(db.Model):
 # information about how to access your data
 # you can choose to output data on this page
 @app.route('/', methods=['GET'])
-def index():
-    return render_template('index.html')
+def index(): 
+    d = DBTable.query.all()
+    # d = {row.states: [row.white,row.black] for row in table}
+    print('%s hello'%d)
+    return render_template('index.html', data = d )
 
 # include other views that return html here:
 @app.route('/other')
