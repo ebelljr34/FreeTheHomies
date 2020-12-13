@@ -1,2 +1,2 @@
 release: python ./import-script.py
-worker: gunicorn -w 4 app:app
+worker: gunicorn -b :$PORT -w 4 app:app
