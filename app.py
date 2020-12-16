@@ -15,15 +15,15 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
-# app.config["ENV"] = 'development'
-# app.config["SECRET_KEY"]=b'_5#y2L"F4Q8z\n\xec]/'
+#app.config["ENV"] = 'development'
+app.config["SECRET_KEY"]=b'_5#y2L"F4Q8z\n\xec]/'
 #try to see if it's an error
 
 # change the following .db file name
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///your-db-name.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///your-db-name.db'
 # this line is to prevent SQLAlchemy from throwing a warning
 # if you don't get one with out it, feel free to remove
-#app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['ENV'] = 'production'
 
 #
