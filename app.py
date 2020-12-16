@@ -52,12 +52,12 @@ class DBTable(db.Model):
 # links to any pages you have
 # information about your data
 # information about how to access your data
-# you can choose to output data on this page
-@app.route('/', methods=['GET'])
-def index(): 
-    d = DBTable.query.all()
-    # d = {row.states: [row.white,row.black] for row in table}
-    return render_template('index.html', data = d )
+# # you can choose to output data on this page
+# @app.route('/', methods=['GET'])
+# def index(): 
+#     d = DBTable.query.all()
+#     # d = {row.states: [row.white,row.black] for row in table}
+#     return render_template('index.html', data = d )
 
 # include other views that return html here:
 @app.route('/other')
@@ -73,7 +73,7 @@ def other():
 @app.route('/api', methods=['GET'])
 def get_data():
     table = DBTable.query.all()
-    d = {row.states: [row.white,row.black, rounded] for row in table}
+    d = {row.states: [row.white,row.black,rounded] for row in table}
     return jsonify(d)
 
 # change this to allow users to add/update data
