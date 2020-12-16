@@ -23,9 +23,13 @@ def free_tha_homies():
             
             black = list(row.select('td')[2].strings)[0]
             states.append(black)
-            print(states)
             
-            data = [state,white,black]
+            black_white_differential = (int(black)/int(white))
+            rounded = str(round(black_white_differential, 2))
+            states.append(rounded)
+            print(states)
+
+            data = [state,white,black,rounded]
             incarceration_data.append(data)
             
             #black_white_differential = black / white
@@ -47,7 +51,7 @@ def main():
     db.drop_all()
     db.create_all()
     for data in incarceration_data: 
-        new_row = DBTable(states = data[0], white = data[1], black = data[2])
+        new_row = DBTable(states = data[0], white = data[1], black = data[2], rounded = data[3])
         print(new_row)
         db.session.add(new_row)
         db.session.commit()

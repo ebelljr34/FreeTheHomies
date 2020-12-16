@@ -38,6 +38,7 @@ class DBTable(db.Model):
     states = db.Column(db.String(255), nullable=False)
     white = db.Column(db.String(255), nullable=False)
     black = db.Column(db.String(255), nullable=False)
+    rounded = db.Column(db.String(255), nullable= False)
     #column_4 = db.Column(db.Float, nullable=False)
     #column_5 = db.Column(db.Boolean, nullable=False)
     
@@ -72,7 +73,7 @@ def other():
 @app.route('/api', methods=['GET'])
 def get_data():
     table = DBTable.query.all()
-    d = {row.states: [row.white,row.black] for row in table}
+    d = {row.states: [row.white,row.black, rounded] for row in table}
     return jsonify(d)
 
 # change this to allow users to add/update data

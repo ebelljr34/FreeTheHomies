@@ -23,14 +23,16 @@
 		<th>State</th> 
 		<th>White</th>
 		<th>Black</th>
+		<th>Black:White</th>
 	</tr>
 		{% for row in data %}
     <tr>
         <td>{{ row.states }}</td>
         <td>{{ row.white }}</td>
         <td>{{ row.black }}</td>
+        <td>{{ rounded}}</td>
      <tr>
-     	 {% end for %}
+     	 {% endfor %}
 <table>     
 	<!-- <li> {{ row.states }}: {{ row.white }},{{ row.black }} </li>         
 	{% endfor %} -->
