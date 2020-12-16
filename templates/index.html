@@ -17,14 +17,8 @@
 	<p>
 <div>
 
-	{% for row in data %}         
-	<li> {{ row.states }}: {{ row.white }},{{ row.black }} </li>         
-	{% endfor %}
-
-{% endblock %}
-
-
-<table>
+	<!-- {% for row in data %}  -->   
+	<table>
 	<tr>
 		<th>State</th> 
 		<th>White</th>
@@ -37,7 +31,10 @@
         <td>{{ row.black }}</td>
      <tr>
      	 {% end for %}
-<table>
+<table>     
+	<!-- <li> {{ row.states }}: {{ row.white }},{{ row.black }} </li>         
+	{% endfor %} -->
 
+{% endblock %}
 </body>
 </html>
