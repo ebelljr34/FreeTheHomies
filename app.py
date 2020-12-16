@@ -20,10 +20,11 @@ app = Flask(__name__)
 #try to see if it's an error
 
 # change the following .db file name
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///your-db-name.db'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///your-db-name.db'
 # this line is to prevent SQLAlchemy from throwing a warning
 # if you don't get one with out it, feel free to remove
 #app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['ENV'] = 'production'
 
 #
 # DB SETUP
@@ -53,11 +54,11 @@ class DBTable(db.Model):
 # information about your data
 # information about how to access your data
 # # you can choose to output data on this page
-# @app.route('/', methods=['GET'])
-# def index(): 
-#     d = DBTable.query.all()
-#     # d = {row.states: [row.white,row.black] for row in table}
-#     return render_template('index.html', data = d )
+@app.route('/', methods=['GET'])
+def index(): 
+     d = DBTable.query.all()
+     d = {row.states: [row.white,row.black,row.rounded] for row in table}
+     return render_template('index.html', data = d )
 
 # include other views that return html here:
 @app.route('/other')
@@ -73,7 +74,7 @@ def other():
 @app.route('/api', methods=['GET'])
 def get_data():
     table = DBTable.query.all()
-    d = {row.states: [row.white,row.black,rounded] for row in table}
+    d = {row.states: [row.white,row.black,row.rounded] for row in table}
     return jsonify(d)
 
 # change this to allow users to add/update data
@@ -95,4 +96,4 @@ def get_data():
 #
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(port = 50001, debug=True)
