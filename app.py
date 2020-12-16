@@ -23,7 +23,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///your-db-name.db'
 # this line is to prevent SQLAlchemy from throwing a warning
 # if you don't get one with out it, feel free to remove
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+#app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 #
 # DB SETUP

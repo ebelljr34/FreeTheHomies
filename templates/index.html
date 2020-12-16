@@ -24,11 +24,20 @@
 {% endblock %}
 
 
-<table style = "width: 100%"
+<table>
 	<tr>
 		<th>State</th> 
-		<th> White</th>
-		<th> Black</th>
+		<th>White</th>
+		<th>Black</th>
 	</tr>
+	{% for row in data %}
+    <tr>
+        <td>{{ row.states }}</td>
+        <td>{{ row.white }}</td>
+        <td>{{ row.black }}</td>
+     <tr>
+     	 {% end for %}
+<table>
+
 </body>
 </html>
