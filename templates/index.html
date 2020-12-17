@@ -13,7 +13,9 @@
 <div>
 	<p>
 		<h1> Free The Homies </h1>
-		"It is our duty to fight for freedom. It is our duty to win. We must love each other and support each other. We have nothing to lose but our chains." - Assata Shakur. This data is derived from The Color of Justice: Racial and Ethnic Disparity in State Prisons, Ashley Nellis, Ph.D. published by The Sentencing Project. This project seeks to show the social ill of mass incarceration with African Americans being disproportionately imprisoned, compared to their white counterparts. This data can be accessed with the following url: http://127.0.0.1:5000/api. 
+		"It is our duty to fight for freedom. It is our duty to win. We must love each other and support each other. We have nothing to lose but our chains." - Assata Shakur. This data is derived from The Color of Justice: Racial and Ethnic Disparity in State Prisons, Ashley Nellis, Ph.D. published by The Sentencing Project. This project seeks to show the social ill of mass incarceration with African Americans being disproportionately imprisoned, compared to their white counterparts. To futher drive this point, I have conveniently calculated the ratio of Black prisoners to white prisoners. The raw data can be accessed with the following url:  
+
+		<a href="/api"> Click Here! </a>
 	<p>
 <div>
 
@@ -27,10 +29,10 @@
 	</tr>
 		{% for row in data %}
     <tr>
-        <td>{{ row.states }}</td>
-        <td>{{ row.white }}</td>
-        <td>{{ row.black }}</td>
-        <td>{{ rounded}}</td>
+        <td>{{ row }}</td>
+        <td>{{ data[row][0] }}</td>
+        <td>{{ data[row][1] }}</td>
+        <td>{{ data[row][2] }}</td>
      <tr>
      	 {% endfor %}
 <table>     
